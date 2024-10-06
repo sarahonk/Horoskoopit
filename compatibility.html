@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<html lang="fi">
+<head>
+    <title>Yhteensopivuus testi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Headeri -->
+<div class="p-5 bg-primary text-white text-center">
+    <h1>Horoskooppien yhteensopivuus</h1>
+    <p>Tarkasta sinun ja kumppanisi välinen yhteensopivuus.</p>
+</div>
+
+<!-- Navigaatio -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link active" href="index.html">Etusivu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html#paivan-horoskooppi">Päivän horoskooppi</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="compatibility.html">Yhteensopivuustesti</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Yhteensopivuus lomake -->
+<div class="container mt-5">
+    <h2>Zodiac Compatibility Checker</h2>
+        
+        <!-- Dropdown -valikko ensimmäiselle merkille -->
+        <div class="form-group">
+            <label for="sign1">Select Your Sign:</label>
+            <select class="form-control" id="sign1">
+                <option value="Aries">Oinas</option>
+                <option value="Taurus">Härkä</option>
+                <option value="Gemini">Kaksoset</option>
+                <option value="Cancer">Rapu</option>
+                <option value="Leo">Leijona</option>
+                <option value="Virgo">Neitsyt</option>
+                <option value="Libra">Vaaka</option>
+                <option value="Scorpio">Skorpioni</option>
+                <option value="Sagittarius">Jousimies</option>
+                <option value="Capricorn">Kauris</option>
+                <option value="Aquarius">Vesimies</option>
+                <option value="Pisces">Kalat</option>
+            </select>
+        </div>
+
+        <!-- Dropdown valikko toiselle merkille -->
+        <div class="form-group">
+            <label for="sign2">Select Partner's Sign:</label>
+            <select class="form-control" id="sign2">
+                <option value="Aries">Oinas</option>
+                <option value="Taurus">Härkä</option>
+                <option value="Gemini">Kaksoset</option>
+                <option value="Cancer">Rapu</option>
+                <option value="Leo">Leijona</option>
+                <option value="Virgo">Neitsyt</option>
+                <option value="Libra">Vaaka</option>
+                <option value="Scorpio">Skorpioni</option>
+                <option value="Sagittarius">Jousimies</option>
+                <option value="Capricorn">Kauris</option>
+                <option value="Aquarius">Vesimies</option>
+                <option value="Pisces">Kalat</option>
+            </select>
+        </div>
+
+        <!-- Nappi yhteensopivuuden selvittämiselle -->
+        <button id="checkCompatibility" class="btn btn-primary">Check Compatibility</button>
+
+        <!-- Tulos -->
+        <div id="compatibility-result" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('checkCompatibility').addEventListener('click', async () => {
+            const sign1 = document.getElementById('sign1').value;
+            const sign2 = document.getElementById('sign2').value;
+
+            const url = `https://horoscope-astrology.p.rapidapi.com/affinity?sign1=${sign1}&sign2=${sign2}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': '7698f4ae08msh8245898a5134db1p14a00cjsned848299b9c9',  
+                    'x-rapidapi-host': 'horoscope-astrology.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.json();  
+                console.log("API Response:", result);
+
+                const resultDiv = document.getElementById('compatibility-result');
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '';  
+
+                result.forEach(section => {
+                    resultDiv.innerHTML += `
+                        <div class="result-section">
+                            <div class="result-header">${section.header}</div>
+                            <div class="result-text">${section.text.replace(/\n\n/g, '<br><br>')}</div>
+                        </div>
+                    `;
+                });
+
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred while fetching compatibility data.');
+            }
+        });
+    </script>
+</body>
+</html>

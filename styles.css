@@ -1,0 +1,191 @@
+
+/* Yleiset linkkipainikkeet */
+.btn-link {
+    display: block; 
+    width: 100%; 
+    background-color: #007bff; 
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+    border-radius: 8px; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+/* Hover efekti */
+.btn-link:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+/* Alkuperäiset nav-linkit */
+.nav-link {
+    color: #007bff; 
+    transition: color 0.3s ease; 
+}
+
+.nav-link:hover {
+    color: #0056b3; 
+}
+/* Taustan väri koko sivulle */
+body {
+    background-color: #f4f4f4; 
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Headerin taustakuva */
+.p-5 {
+    background-image: url('kuvat/galaxy.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    color: white; 
+    text-align: center; 
+    padding: 50px 20px; 
+}
+
+/* Headerin title */
+.p-5 h1 {
+    font-family: 'Georgia', serif; 
+    font-size: 3em; 
+    font-weight: bold; 
+    color: #FFD700; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
+}
+
+/* Subtitle tyyli */
+.p-5 p {
+    font-size: 1.2em; 
+    color: #fff; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
+}
+
+/* Yleinen container-luokka */
+.container {
+    margin-top: 30px; 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 12px;  
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* Otsikoiden väri */
+h1, h2 {
+    color: #2c3e50;
+    margin-bottom: 20px; 
+}
+
+/* Ennustetuloksen laatikko */
+#horoscope-result {
+    margin-top: 20px; 
+    padding: 15px; 
+    background-color: #f8f9fa; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    transition: background-color 0.3s ease; 
+}
+
+#horoscope-result:hover {
+    background-color: #e9ecef; 
+}
+
+/* Navigointivalikon linkkien teksti */
+.navbar-nav a {
+    color: #fff !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+    color: #ffc107 !important; 
+}
+
+/* Horoskoopin kuvat */
+.horoscope-image {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+}
+
+/* Karusellin kuvat */
+.carousel-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Marginaali */
+.result-section {
+    margin-bottom: 20px; 
+}
+
+/* Tulosten otsikot */
+.result-header {
+    font-weight: bold;
+    color: #073c76;
+}
+
+/* Nappulat */
+.btn-primary {
+    background-color: #032d5a;
+    border-color: #04264b;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #39418f;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-select {
+    margin-bottom: 15px;
+}
+
+.carousel-caption h5 {
+    background-color: rgba(0, 0, 0, 0.6);  
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Yhteensopivuus-laatikko */
+.compatibility-container {
+    position: relative; 
+    display: inline-block; 
+}
+
+.horoscope-image {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+}
+
+/* Overlay tekstin tyyli*/
+.overlay-text {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: #FFD700; 
+    font-family: 'Georgia', serif;
+    font-size: 1.5em; 
+    text-align: center; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); 
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+.overlay-text:hover {
+    color: #FFC107; 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
